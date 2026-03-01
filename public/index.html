@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Door Alert Dashboard</title>
+  <meta name="description" content="Real-time door monitoring dashboard">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Door Alert Dashboard</h1>
+      <p class="subtitle">Real-time monitoring system</p>
+    </header>
+
+    <main class="main-content">
+      <section class="status-card">
+        <div class="status-header"> 
+          <h2>Current Status</h2>
+          <div class="header-controls">
+            <button id="autoRefreshToggle" class="toggle-btn" title="Toggle auto-refresh">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span class="toggle-status">Auto-refresh: ON</span>
+            </button>
+            <button id="refreshBtn" class="refresh-btn" title="Refresh data">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="currentStatus" class="status-display">
+          <div class="status-icon"></div>
+          <div class="status-text">Loading...</div>
+          <div class="status-time">--</div>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"></div>
+          <div class="stat-content">
+            <div class="stat-label">Total Events</div>
+            <div id="totalEvents" class="stat-value">--</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"></div>
+          <div class="stat-content">
+            <div class="stat-label">Today's Events</div>
+            <div id="todayEvents" class="stat-value">--</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="graph-section">
+        <h2>Activity Timeline</h2>
+        <div class="graph-container">
+          <canvas id="activityChart"></canvas>
+        </div>
+      </section>
+
+      <section class="history-section">
+        <h2>Recent Activity</h2>
+        <div class="table-container">
+          <table class="events-table">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Time</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="eventsTableBody">
+              <tr>
+                <td colspan="3" class="loading-cell">Loading events...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Powered by micro:bit + ESP32 + Bun</p>
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

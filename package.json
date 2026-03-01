@@ -1,0 +1,15 @@
+{
+  "name": "door-alert-dashboard",
+  "version": "1.0.0",
+  "description": "Door alert monitoring dashboard with micro:bit and ESP32",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run server.ts",
+    "start": "bun run server.ts",
+    "reset-db": "bun run reset-db.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
