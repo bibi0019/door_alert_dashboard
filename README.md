@@ -60,6 +60,9 @@ public/            # Static dashboard UI
   index.html
   style.css
   app.js
+etcs/              # Micro:bit code and ESP32 code
+  esp32send.ino
+  Microbit_code.py
 db.ts              # SQLite access + queries
 server.ts          # Bun server + API routes
 discord.ts         # Optional Discord webhook notifications
